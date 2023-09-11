@@ -1,0 +1,35 @@
+server:
+  port: 8083
+external:
+  product:
+    controller: http://192.168.1.4:8081/api/products
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: root
+      database: order_db
+      port: 27017
+      host: localhost
+  #  security:
+  #    user:
+  #      name: user
+  #      password: password
+  application:
+    name: shopnow-order-ms
+
+eureka:
+  client:
+  registerWithEureka: true
+  fetchRegistry: true
+  service-url:
+    defaultZone: http://localhost:8761/eureka
